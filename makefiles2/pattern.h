@@ -50,7 +50,7 @@ void p3(int n)
 
 void p4(int n)
 {
-    int i.j;
+    int i,j;
     for(i=0;i<n;i++)
 	{
 		cout<<endl;
