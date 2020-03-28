@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
-#include"makefiles/L1Logic1.h"
-#include"makefiles/L1Logic2.h"
-#include"makefiles/L1Logic3.h"
-#include"makefiles/L1General.h"
+#include"makefiles1/L1Logic1.h"
+#include"makefiles1/L1Logic2.h"
+#include"makefiles1/L1Logic3.h"
+#include"makefiles1/L1General.h"
 #define ll long long int
 using namespace std;
 int main(){
