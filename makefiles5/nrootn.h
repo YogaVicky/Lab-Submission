@@ -1,7 +1,7 @@
 using namespace std;
 #define ll long long int
 
-int primality check(ll n)
+int primalitycheck(ll n)
 {
     ll k,f=0;
     //cout<<"Enter n :"<<endl;
