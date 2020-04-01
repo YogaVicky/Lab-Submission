@@ -3,6 +3,9 @@
 #include"makefiles8/module4/Test_bridges.h"
 #include"makefiles8/module4/Test_bipartite.h"
 #include"makefiles8/module4/Test_articulationpoints.h"
+#include"makefiles8/module5/MST_Prim.h"
+#include"makefiles8/module5/MST_Kruskal.h"
+#include"makefiles8/module5/MST_MyAlgo.h"
 #define ll long long int
 #define vl vector<int>
 #define vvl vector<vl>
@@ -25,5 +28,14 @@ int main()
 
     /*Test_bridges*/
     Test_bridges(G);
+
+    /*MST_Prim*/
+    MST_Prim(G);
+
+    /*MST_Kruskal*/
+    MST_Kruskal(G);
+
+    /*MST_MyAlgo*/
+    MST_MyAlgo(G);
     return 0;
 }
