@@ -1,25 +1,49 @@
 #include<bits/stdc++.h>
-
+#include"dfs.h"
 
 using namespace std;
 
-vector<int> dist;
-vector<int> path;
+vector<int> length;
 
-int longestpath(Graph G, int u)
+ void longestpath(Graph G,vertex s=0)
 {
-	if(visit[u])
-		return dist[u];
-	visit[u]=true;
-	dist[u]=1;
-	for(auto v=G[u].begin();v!=G[u].end();v++)
-	{
-		int c=*v;
-		if(dist[u]<longestpath(G,c)+1)
-		{
-			dist[u]=dist[c]+1;
-			path[u+1]=c+1;
+ 	int size=0;
+	
+	queue<int> q; 
+
+	q.push(s); 
+	v[s] = true; 
+	length[s]=0;
+
+	while (!q.empty()) { 
+
+		int f = q.front(); 
+		q.pop(); 
+
+
+		for (auto i = G[f].begin(); i != G[f].end(); i++) { 
+			if (!v[*i]) { 
+				q.push(*i); 
+				v[*i] = true;
+				length[*i]=length[*i -1]+1;
+				size++;
+			} 
 		}
-	}
-	return dist[u];
-}
+		
+	} 
+	int maxlength=length[s];
+	int index=s;
+	for(int i=0;i<=size;i++)
+	{
+		if(maxlength<length[i])
+		{
+			maxlength=length[i];
+			index=i;
+		}
+	} 
+	visit.assign(size+1,false);
+
+	DFS(G,index);
+	
+	return;
+} 

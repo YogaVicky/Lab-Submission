@@ -1,8 +1,9 @@
 #include<bits/stdc++.h>
-#include"dfs.h"
-#include"longpath.h"
+#include"longestpath.h"
 
-using namespace std;
+using namespace std; 
+vector<bool> v; 
+
 
 void addEdge(vertex a,vertex b)
 {
@@ -21,6 +22,7 @@ int main()
 	cin>>edges;
 	
 	visit.assign(nodes,false);
+	v.assign(nodes,false);
 	G.assign(nodes,vector<int>());
 	
 	int p1,p2;
@@ -29,9 +31,9 @@ int main()
 	int i;
 	for(i=0;i<edges;i++)
 	{
-		cout<<"Enter the first edge";
+		cout<<"Enter the first end";
 		cin>>p1;
-		cout<<endl<<"Enter the second edge";
+		cout<<endl<<"Enter the second end";
 		cin>>p2;
 		
 		if(p1>=nodes || p2>=nodes)
@@ -42,10 +44,12 @@ int main()
 		addEdge(p1,p2);
 	}
 	
+	length.assign(nodes,0);
 	
 	cout<<"Longest path is "<<endl;
 	
-	longestpath(G,0);
+	longestpath(G);
+	
 	
 	
 	return 0;
