@@ -28,6 +28,7 @@ int Union(int* a[],int n,int* b[])
 			{
 				a[i]=q;
 			}
+			break;
 		}
 	}
 	return min;

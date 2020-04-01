@@ -1,12 +1,18 @@
 #include<bits/stdc++.h>
-#include"bubble_sort.h"
-#include"disp_arr.h"
-#include"ter_sort.h"
-#include"hash_chain_sort.h"
+#include"makefiles3/bubble_sort.h"
+#include"makefiles3/disp_arr.h"
+#include"makefiles3/ter_sort.h"
+#include"makefiles3/hash_chain_sort.h"
+#include"makefiles3/split.h"
+
+
 using namespace std;
+
 
 int main()
 {
+	cout<<"Q1"<<endl;
+	
 	int n,i;
 	cout<<"Enter the number of elements in the ternary array"<<endl;
 	cin>>n;
@@ -34,6 +40,27 @@ int main()
     cout<<"output of array given by hash (chain) sort:\t";
     chainsort(arr1,n);
     display(arr1,n);
+    
+    
+    cout<<endl;
+    cout<<"Q2"<<endl;
+    int s;
+    cout<<"pls enter arreay size\n";
+    cin>>s;
+   
+    cout<<"pls enter array elements\n";
+    int a[s],p[s/2],q[s/2];
+    for(int i=0;i<s;i++)
+    {
+        cin>>a[i];
+    }
+ 
+    split_almost(a,p,q,s);
 
+    cout<<"arr1\tarr2\n";
+    for(int i=0;i<s/2;i++)
+	cout<<p[i]<<'\t'<<q[i]<<'\n';
+	cout<<'\n';
+	
 	return 0;
 }

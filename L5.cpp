@@ -1,10 +1,15 @@
 #include<bits/stdc++.h>
-#include"makefiles5\Merge.h"
-#include"makefiles5\BST.h"
-#include"makefiles5\PointerMin.h"
-#include"makefiles5\MinHeap.h"
-using namespace std;
+#include"makefiles5/Merge.h"
+#include"makefiles5/BST.h"
+#include"makefiles5/PointerMin.h"
+#include"makefiles5/MinHeap.h"
+#include"makefiles5/divconc.h"
+#include<time.h>
+#include<string.h>
+#include"makefiles5/mergediv.h"
 
+
+using namespace std;
 
 
 int main()
@@ -15,8 +20,12 @@ int main()
 	
 	cout<<"Enter the size of the arrays"<<endl;
 	cin>>size;
+
 	cout<<"Enter the members of the array"<<endl;
+
 	int arr[n][size];
+	vector <int> v[n];
+
 	cout<<"Enter the array"<<endl;
 	int k;
 	for(i=0;i<n;i++)
@@ -25,6 +34,7 @@ int main()
 		for(j=0;j<size;j++)
 		{
 			cin>>arr[i][j];
+			v[i].push_back(arr[i][j]);
 		}
 	}
 	/*Declaration and initialization of array of pointers*/
@@ -61,6 +71,32 @@ int main()
 	
 	
 	cout<<endl<<"Through Divide and Conquer"<<endl;
+	divconc(0,n,v);
+	auto it=v[0].begin();
+	while(it!=v[0].end())
+	{
+		cout<<*it<<' ';
+		it++;
+	}
+	cout<<'\n';
+	
+	
+	int d[1000000];
+	srand(time(NULL));
+	for(int i=0;i<1000000;i++)
+		d[i]=rand();
+	divsort(0,1000000,d);
+
+	for(int i=0;i<999999;i++)
+	{
+		if(d[i]>d[i+1])
+			{
+				cout<<"fail"<<i<<" ";
+				return(0);
+			}			
+	}
+	cout<<"sucess";
+	
 	
 	return 0;
 }
