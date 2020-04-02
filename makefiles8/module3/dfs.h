@@ -10,6 +10,14 @@ Graph G;
 vector<bool> visit;
 
 
+void addEdge(vertex a,vertex b)
+{
+	G[a].push_back(b);
+	
+	G[b].push_back(a);
+}
+
+
 
 void DFS(Graph G,vertex s)
 {
