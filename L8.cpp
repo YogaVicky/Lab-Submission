@@ -1,5 +1,8 @@
 #include<bits/stdc++.h>
+#include"makefiles8/module1/dfs.h"
+#include"makefiles8/module2/BFS.h"
 #include"makefiles8/module3/dfs.h"
+#include"makefiles8/module3/spath.h"
 #include"makefiles8/module4/Test_bridges.h"
 #include"makefiles8/module4/Test_bipartite.h"
 #include"makefiles8/module4/Test_articulationpoints.h"
@@ -14,12 +17,12 @@ using namespace std;
 
 int main()
 {
-    int n; 
+    int n,flag=0; 
     vvl G; 
     vl visited;
     vl tin, low;
     int timer;
-    int nodes,edges;
+    int nodes,edges,length;
 	cout<<"Enter the number of vertices in the graph"<<endl;
 	cin>>nodes;
 	cout<<endl<<"Enter the number of edges in the graph"<<endl;
@@ -49,15 +52,63 @@ int main()
 	length.assign(nodes,0);
 
 
-
     /*MODULE 1*/
-
+    
+    int a,b;
+	cout<<"Enter the nodes which need to be checked for a path"<<endl;
+	cin>>a>>b;
+	
+    DFS(G, a, b);
+	visit.assign(nodes,false);
+	cout<<endl;
+	
+	cout<<"Enter the starting point of traversal"<<endl;
+	cin>>a;
+	
+	DFS(G, a);
+	visit.assign(nodes,false);
+	cout<<endl;
+	
+	cout<<"Traversal from arbitrary point 0 is"<<endl;
+	
+	DFS(G);
+	visit.assign(nodes,false);
 
     /*MODULE 2*/
 
+    int a, b; 
+    for (int i = 0; i < e; i++) { 
+        cin >> a >> b; 
+        edge(a, b); 
+    } 
+    BFS(G);
+     v.assign(n, false); 
+    
+    BFS(G,0);
+    v.assign(n, false); 
+
+    BFS(G,0,3);
+    
 
     /*MODULE 3*/
+    cout<<"Longest path is "<<endl;
+	
+	longestpath(G);
 
+      if(flag)
+    {
+        cout<<"enter the edges and weights (vertice numbers from 0 to "<<n-1<<")\n";
+        int a, b, c; 
+        for (int i = 0; i < e; i++) 
+        { 
+            cin >> a >> b >> c; 
+            edge(a, b, c); 
+        }
+    }
+    cout<<"enter edges to get spath\n";
+    cin>>n>>e;
+    Spath(G,n,e,flag);
+    
 
     /*MODULE 4*/
 
