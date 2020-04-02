@@ -2,6 +2,7 @@
 #include"makefiles8/module1/dfs.h"
 #include"makefiles8/module2/BFS.h"
 #include"makefiles8/module3/dfs.h"
+#include"makefiles8/module3/longpath.h"
 #include"makefiles8/module3/spath.h"
 #include"makefiles8/module4/Test_bridges.h"
 #include"makefiles8/module4/Test_bipartite.h"
@@ -17,17 +18,17 @@ using namespace std;
 
 int main()
 {
-    int n,flag=0; 
+    int n,flag=0,e; 
     vvl G; 
     vl visited;
     vl tin, low;
     int timer;
-    int nodes,edges,length;
+    int nodes,edges;
 	cout<<"Enter the number of vertices in the graph"<<endl;
 	cin>>nodes;
 	cout<<endl<<"Enter the number of edges in the graph"<<endl;
 	cin>>edges;
-	vl visit,v;
+	vl visit,v,length,edge;
 	visit.assign(nodes,false);
 	v.assign(nodes,false);
 	G.assign(nodes,vector<int>());
@@ -79,7 +80,7 @@ int main()
     int a, b; 
     for (int i = 0; i < e; i++) { 
         cin >> a >> b; 
-        edge(a, b); 
+        addEdge(a, b); 
     } 
     BFS(G);
      v.assign(n, false); 
